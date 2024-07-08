@@ -1,5 +1,5 @@
 from copystatic import copy_directory_recursive
-from generate_page import generate_page
+from generate_page import generate_page, generate_pages_recursive
 from clear_public import delete_all_contents
 
 import logging

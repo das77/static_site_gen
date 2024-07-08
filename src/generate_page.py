@@ -42,3 +42,19 @@ def generate_page(from_path, template_path, dest_path):
         file.write(final_content)
     
     logging.info(f"Page generated successfully at {dest_path}")
+
+def generate_pages_recursive(dir_path_content, template_path, dest_dir_path):
+    """
+    Recursively generate HTML pages for all markdown files in the specified directory.
+    
+    :param dir_path_content: Path to the directory containing markdown files.
+    :param template_path: Path to the template file.
+    :param dest_dir_path: Path to save the generated HTML files.
+    """
+    for root, _, files in os.walk(dir_path_content):
+        for file in files:
+            if file.endswith('.md'):
+                from_path = os.path.join(root, file)
+                relative_path = os.path.relpath(from_path, dir_path_content)
+                dest_path = os.path.join(dest_dir_path, os.path.splitext(relative_path)[0] + '.html')
+                generate_page(from_path, template_path, dest_path)
