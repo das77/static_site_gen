@@ -4,8 +4,6 @@ import logging
 
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(message)s')
-# Directory to clear
-directory_path = '/root/Projects/static_site_gen/public'
 
 def delete_all_contents(directory):
     """
@@ -26,9 +24,3 @@ def delete_all_contents(directory):
         elif os.path.isdir(item_path):
             shutil.rmtree(item_path)  # Remove the directory and all its contents
             logging.info(f"Deleted directory: {item_path}")
-
-try:
-    delete_all_contents(directory_path)
-    logging.info(f"All contents of the directory {directory_path} have been deleted.")
-except Exception as e:
-    logging.error(str(e))
