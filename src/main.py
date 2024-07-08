@@ -8,8 +8,8 @@ logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(message)s')
 
 def main():
     # Copy static files
-    src_directory = "C:/Users/dsper/Projects/static_site_gen/static"
-    dst_directory = "C:/Users/dsper/Projects/static_site_gen/public"
+    src_directory = "/root/Projects/static_site_gen/static"
+    dst_directory = "/root/Projects/static_site_gen/public"
     try:
         copy_directory_recursive(src_directory, dst_directory)
     except Exception as err:

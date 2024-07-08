@@ -5,7 +5,7 @@ import logging
 # Set up logging
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(message)s')
 # Directory to clear
-directory_path = 'C:/Users/dsper/Projects/static_site_gen/public/'
+directory_path = '/root/Projects/static_site_gen/public'
 
 def delete_all_contents(directory):
     """
