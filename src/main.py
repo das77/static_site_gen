@@ -23,11 +23,11 @@ def main():
     except Exception as err:
         logging.error(f'Error copying static files: {err}')
     # Set content source and dest paths
-    from_path = '/root/Projects/static_site_gen/content/index.md'
+    from_path = '/root/Projects/static_site_gen/content'
     template_path = '/root/Projects/static_site_gen/template.html'
-    dest_path = '/root/Projects/static_site_gen/public/index.html'
+    dest_path = '/root/Projects/static_site_gen/public'
     # Generate page
-    generate_page(from_path, template_path, dest_path)
+    generate_pages_recursive(from_path, template_path, dest_path)
 
 if __name__ == '__main__':
     main()
