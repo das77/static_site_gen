@@ -52,9 +52,13 @@ def generate_pages_recursive(dir_path_content, template_path, dest_dir_path):
     :param dest_dir_path: Path to save the generated HTML files.
     """
     for root, _, files in os.walk(dir_path_content):
+        logging.info(f"Walking through directory: {root}")
         for file in files:
+            logging.info(f"Found file: {file}")
             if file.endswith('.md'):
                 from_path = os.path.join(root, file)
+                logging.info(f"From path: {from_path}")
                 relative_path = os.path.relpath(from_path, dir_path_content)
                 dest_path = os.path.join(dest_dir_path, os.path.splitext(relative_path)[0] + '.html')
+                logging.info(f"Destination path: {dest_path}")
                 generate_page(from_path, template_path, dest_path)
